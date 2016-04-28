@@ -47,8 +47,8 @@ public class DrawingArea extends View // You need to extend the View class
         pntTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         pntGraphicsPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-        pntGraphicsPaint.setColor(Color.BLACK);
-        pntGraphicsPaint.setStrokeWidth(3);
+        pntGraphicsPaint.setColor(Color.GREEN);
+        pntGraphicsPaint.setStrokeWidth(5);
 
     }
 
@@ -57,21 +57,19 @@ public class DrawingArea extends View // You need to extend the View class
         // This method exists to handle re-drawing of the DrawingArea object in the event of a
         //   resize of our App. For example, tilting the device may require us to redraw our content.
         // More instructions are meant to be added at the bottom if required.
-
         super.onSizeChanged(w, h, oldw, oldh);
-
     }
 
     protected void onDraw(Canvas canvas)
     {
         // This method is where we issue our actual drawing commands.
         // The Canvas parameter is what we draw ON; the Paint objects defined above are what we draw WITH.
-
         super.onDraw(canvas);
-
-        canvas.drawCircle((float)50.0, (float)50.0, (float)50.0, pntGraphicsPaint);
-
-
+        canvas.drawCircle((float)50.0,(float)50.0,(float)50.0,pntGraphicsPaint);
+        pntGraphicsPaint.setColor(Color.RED);
+        canvas.drawRect((float)30.0,(float)30.0,(float)350.0,(float)350.0,pntGraphicsPaint);
+        pntGraphicsPaint.setColor(Color.BLUE);
+        canvas.drawLine((float)40.0,(float)40.0,(float)500.0,(float)500.0,pntGraphicsPaint);
     }
 
 
