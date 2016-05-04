@@ -47,7 +47,7 @@ public class DrawingArea extends View // You need to extend the View class
         pntTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         pntGraphicsPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-        pntGraphicsPaint.setColor(Color.GREEN);
+        pntGraphicsPaint.setColor(Color.BLACK);
         pntGraphicsPaint.setStrokeWidth(5);
 
     }
@@ -65,11 +65,79 @@ public class DrawingArea extends View // You need to extend the View class
         // This method is where we issue our actual drawing commands.
         // The Canvas parameter is what we draw ON; the Paint objects defined above are what we draw WITH.
         super.onDraw(canvas);
-        canvas.drawCircle((float)50.0,(float)50.0,(float)50.0,pntGraphicsPaint);
-        pntGraphicsPaint.setColor(Color.RED);
-        canvas.drawRect((float)30.0,(float)30.0,(float)350.0,(float)350.0,pntGraphicsPaint);
-        pntGraphicsPaint.setColor(Color.BLUE);
-        canvas.drawLine((float)40.0,(float)40.0,(float)500.0,(float)500.0,pntGraphicsPaint);
+        // stick man
+        /*
+        canvas.drawCircle((float) 300.0, (float) 300.0, (float) 60.0, pntGraphicsPaint);
+        canvas.drawLine((float) 300.0, (float) 300.0, (float) 300.0, (float) 700.0, pntGraphicsPaint);
+        canvas.drawLine((float)300.0,(float)700.0,(float)150.0,(float)900.0,pntGraphicsPaint);
+        canvas.drawLine((float)300.0,(float)700.0,(float)450.0,(float)900.0,pntGraphicsPaint);
+        canvas.drawLine((float)300.0,(float)400.0,(float)450.0,(float)500.0,pntGraphicsPaint);
+        canvas.drawLine((float)300.0,(float)400.0,(float)150.0,(float)500.0,pntGraphicsPaint);
+        */
+
+        // grid pattern
+       /* float startX = (float) 5.0;
+        float startY = (float)1.5;
+        for(int numLinesX = 0; numLinesX< 15; numLinesX++) {
+            canvas.drawLine((float)startX, (float) 0.0, (float)startX, (float) 1100.0, pntGraphicsPaint);
+            startX+=50.0;
+        }
+        for(int numLinesY = 0; numLinesY < 22; numLinesY++) {
+            canvas.drawLine((float) 5.0, (float) startY, (float) 800.0, (float) startY, pntGraphicsPaint);
+            startY += 50.0;
+        }
+        */
+        // Checkerboard pattern
+        float startX = (float)0.0;
+        float startY = (float)0.0;
+        float endX = (float)150.0;
+        float endY = (float)150.0;
+        // first column
+        for(int i = 0; i< 4; i++){
+            canvas.drawRect(startX,startY,endX,endY,pntGraphicsPaint);
+            startY+=300.0;
+            endY+=300.0;
+        }
+        // second column
+        startX = (float) 150.0;
+        startY = (float)150.0;
+        endX = (float) 300.0;
+        endY = (float)300.0;
+        for(int i = 0; i < 3; i++){
+            canvas.drawRect(startX,startY,endX,endY,pntGraphicsPaint);
+            startY+=300.0;
+            endY+=300.0;
+        }
+        //third column
+        startX = (float) 300.0;
+        startY = (float)0.0;
+        endX = (float) 450.0;
+        endY = (float)150.0;
+        for(int i = 0; i< 4; i++){
+            canvas.drawRect(startX,startY,endX,endY,pntGraphicsPaint);
+            startY+=300.0;
+            endY+=300.0;
+        }
+        // fourth column
+        startX = (float) 450.0;
+        startY = (float)150.0;
+        endX = (float) 600.0;
+        endY = (float)300.0;
+        for(int i = 0; i < 3; i++){
+            canvas.drawRect(startX,startY,endX,endY,pntGraphicsPaint);
+            startY+=300.0;
+            endY+=300.0;
+        }
+        //fifth column
+        startX = (float) 600.0;
+        startY = (float)0.0;
+        endX = (float) 750.0;
+        endY = (float)150.0;
+        for(int i = 0; i< 4; i++){
+            canvas.drawRect(startX,startY,endX,endY,pntGraphicsPaint);
+            startY+=300.0;
+            endY+=300.0;
+        }
     }
 
 
